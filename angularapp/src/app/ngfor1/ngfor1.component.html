@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" ><h2>Select Country:</h2></label>
+        &nbsp;
+        <select class="custom-select" (change)="onChangeCountry($event.target.value)">
+            <option value="">Country</option>
+          <option  *ngFor="let country of countries">{{country.name}}</option>
+        </select>
+        </div>
+    </div>
+   <br><br>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" ><h2>Select State:</h2></label>
+          &nbsp;
+        <select class="custom-select" >
+           
+            <option *ngFor ="let state of states"> {{state}} </option>
+          
+        </select>
+    </div>
+      </div>
+      
+      <!-- <label>Country</label>
+<div  title="Please select the country that the customer will primarily be served from">
+    <select placeholder="Phantasyland" (change)="onChangeCountry($event.target.value)">
+        <option *ngFor="let country of countries">{{country.name}} </option>
+    </select>
+</div>
+
+
+<label>City</label>
+<div title="Please select the city that the customer is primarily to be served from.">
+    <select placeholder="Anycity">
+        <option *ngFor ="let state of states">{{state}} </option>
+  </select>
+</div> -->
+      
+</div>

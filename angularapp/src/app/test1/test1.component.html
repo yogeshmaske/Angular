@@ -1,0 +1,10 @@
+
+<button (click)="onClick()">Click Me</button>
+<p>{{count}}</p>
+
+<input type="text" (keyup)="onKeyUp($event)">
+<p>value:{{dis}}</p>
+
+<h1>Two Wy Data Binding using ngModel </h1>
+<input type="text" [(ngModel)]="firstName">
+{{firstName}}

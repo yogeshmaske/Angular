@@ -1,0 +1,39 @@
+<div class="container">
+    <br><br>
+    <h1>Password Generator</h1>
+    <br><br>
+    <div class="form-group">
+        Enter Length: <input type="number" (input)="onChaneLength($event)" [value]="string_length" >
+    </div>
+    
+    <div class="form-check">
+        <label class="form-check-label" for="exampleCheck1">Use Letter</label>
+        &nbsp;
+        <input type="checkbox" (change)="onUseLetter()" class="form-check-input" id="exampleCheck1">
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label" for="exampleCheck1">Use Number</label>
+        &nbsp;
+
+        <input type="checkbox" (change)="onUseNumber()" class="form-check-input" id="exampleCheck1">
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label" for="exampleCheck1">Use Symbol</label>
+        &nbsp;
+
+        <input type="checkbox" (change)="onUseSymbol()" class="form-check-input" id="exampleCheck1">
+      </div>
+      <br>
+      <button type="button" (click)="onClick()" class="btn btn-info">Generate>></button>
+       <br><br>
+      <div class="form-group">
+        Your Password: <input type="text" [value]="password">
+    </div>
+</div>
+
+
+
+
+
