@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="input-group mb-3">
+    <!-- <div class="input-group mb-3">
         <div class="input-group-prepend">
           <label class="input-group-text" ><h2>Select Country:</h2></label>
         &nbsp;
@@ -15,26 +15,50 @@
           <label class="input-group-text" ><h2>Select State:</h2></label>
           &nbsp;
         <select class="custom-select" >
-           
+            <option value="">Select States</option>
             <option *ngFor ="let state of states"> {{state}} </option>
           
         </select>
     </div>
-      </div>
+      </div> -->
       
-      <!-- <label>Country</label>
-<div  title="Please select the country that the customer will primarily be served from">
-    <select placeholder="Phantasyland" (change)="onChangeCountry($event.target.value)">
-        <option *ngFor="let country of countries">{{country.name}} </option>
-    </select>
-</div>
+      <select (change)="OnCountrySelect($event)" >
+    <option value=""> Select Country</option>
+    <option value="{{c.id}}" *ngFor="let c of countries">
+        {{c.name}}
+    </option>
+</select>
 
 
-<label>City</label>
-<div title="Please select the city that the customer is primarily to be served from.">
-    <select placeholder="Anycity">
-        <option *ngFor ="let state of states">{{state}} </option>
-  </select>
-</div> -->
+<select >
+    <option value=""> Select States</option>
+    <option value="{{s.id}}" *ngFor="let s of states">
+        {{s.name}}
+    </option>
+</select>
+
+
+
+  <!-- countries = [
+    { id: '1', name: 'India'},
+    { id: '2', name: 'Germany'}
+  ]
+
+  arrStates: Array<any> = [
+    { id: 's1', parentId: '2', name:'Bavaria'},
+    { id: 's2', parentId: '2', name:'Berlin'},
+    { id: 's3', parentId: '1', name:'Maharashtra'},
+    { id: 's4', parentId: '1', name:'Tamilnadu'},
+
+  ]
+
+  states: Array<any> = [];
+
+  OnCountrySelect(val: any) {
+
+    this.states = this.arrStates.filter(c => c.parentId == val.target.value);
+  } -->
+
+
       
 </div>

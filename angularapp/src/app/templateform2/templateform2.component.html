@@ -1,0 +1,141 @@
+<div class="page-area container">
+    <div class="row justify-content-center ">
+        <div class="col-md-6  bg-light rounded shadow py-3 text-left">
+            <h2 class="text-info">Registraion Form</h2>
+
+            <!-- Form tag -->
+            <form #myForm="ngForm">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--First name input  -->
+                        <div class="form-group mt-2">
+                            <label for="firstname">First Name*</label>
+                            <input type="text" class="form-control mt-1" required id="firstname" placeholder="Enter First Name"
+                                name="firstname" minlength="5" maxlength="5" ngModel #firstname="ngModel">
+                            <small class="text-danger" *ngIf="firstname.errors?.minlength">Minimum & Maximum length is 5
+                            </small>
+                            <small class="text-danger" *ngIf="!firstname.valid && firstname.touched">This field is
+                                required</small>
+                            <!-- <mat-error *ngIf="firstname.errors?.required">This First name is Mandatory</mat-error> -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!--Last name input box  -->
+                <div class="form-group mt-2">
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" class="form-control mt-1" id="lastname" placeholder="Enter Last Name"
+                        name="lastname" maxlength="10" ngModel #lastname="ngModel">
+                    <!-- <small class="text-danger" *ngIf="lastname.errors?.maxlength">Maximum length is 10</small> -->
+                </div>
+                    </div>
+                </div>
+                
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- Age input -->
+                <div class="form-group mt-2">
+                    <label for="age">Age*</label>
+                    <input type="number" class="form-control mt-1 " (ngModelChange)="valMinMax($event)" name="age"
+                        id="age" ngModel #age="ngModel" placeholder="Enter Age" min="17" max="20" required>
+                    <small class="text-danger" *ngIf="minMax && age.touched">Age should be between 17-20</small>
+                </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!--Phone input field  -->
+                <div class="form-group mt-2">
+                    <label for="phone">Phone No</label>
+                    <input type="tele" pattern="[0-9]+" class="form-control mt-1 " (keypress)="allowNumers($event)"
+                        name="phone" id="phone" ngModel #phone="ngModel" [disabled]="phoneDesable"
+                        placeholder="Enter phone number" maxlength="10">
+                    <small class="text-danger" *ngIf="isChar">Please Enter only Numbers</small>
+                </div>
+                    </div>
+                </div>
+                    
+                
+                
+                
+
+                <!-- Email input field -->
+                <div class="form-group mt-2">
+                    <label for="email">Email*</label>
+                    <input type="email" class="form-control mt-1 " email name="email" id="email" ngModel
+                        #email="ngModel" placeholder="Enter Email Id" required>
+                    <small *ngIf="!email.valid && email.touched" class="text-danger">Please Enter Valid Email</small>
+                </div>
+
+                
+                <!-- City drop box -->
+                <div class="form-group">
+                    <label for="city">Select City</label>
+                    <select name="city" id="" class="form-control mt-1 ">
+                        <option *ngFor="let city of cities" value="{{city}}">{{city}}</option>
+                    </select>
+                </div>
+
+                <!--Gender radio button  -->
+                <div class="form-group mt-2">
+                    <label for="gender">Select Gender*</label>
+                    <div class="form-group" *ngFor="let gender of genders">
+
+                        <input type="radio" name="gender" id="gender" value="{{gender.value}}" [ngModel]="defaultGender"
+                        class="custom-control custom-radio">&nbsp;
+                        <label for="{{gender.id}}">{{gender.value}}</label>
+                      </div>
+                </div>
+
+                <!-- Password field -->
+                <div ngModelGroup="passwordGroup" #passwordGroup="ngModelGroup">
+                    <div class="form-group mt-2">
+                        <label for="password">Password*</label>
+                        <div class="flexContainer">
+                            <input matInput ngModel #password="ngModel" name="password" [type]="passInputType"
+                                placeholder="Enter Password" class="form-control  inputField " minlength="9" required>
+
+                            <button (click)="passHideShow()" class="rounded">
+                                <i class="fa fa-eye" aria-hidden="true" *ngIf="show"></i>
+                                <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="!show"></i>
+                            </button>
+                        </div>
+                        <mat-error *ngIf="password.errors?.required && password.touched">The Password is mandatory
+                        </mat-error>
+                        <mat-error *ngIf="password.errors?.minlength">
+                            your Password must have minimum {{password.errors?.minlength.requiredLength}} chars,
+                            but it only has {{password.errors?.minlength.actualLength}}.
+                        </mat-error>
+                    </div>
+                    <!-- Confirm password field -->
+
+                    <div class="form-group mt-2">
+                        <label for="cpassword">Password*</label>
+                        <div class="flexContainer">
+                            <input matInput ngModel #cpassword="ngModel" name="cpassword" [type]="cPassInputType"
+                                placeholder="Confirm Password" class="form-control  inputField " minlength="9" required
+                                (blur)="confirmPass(passwordGroup)">
+
+                            <button (click)="cPassHideShow()" class="rounded">
+                                <i class="fa fa-eye" aria-hidden="true" *ngIf="cShow"></i>
+                                <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="!cShow"></i>
+                            </button>
+                        </div>
+                        <mat-error *ngIf="cpassword.errors?.required && cpassword.touched">Confirm Password is mandatory
+                        </mat-error>
+                        <mat-error *ngIf="matchPassword"> Password dose not Match</mat-error>
+                        <!-- <mat-error *ngIf="cpassword.touched && password.errors?.required && password.untouched">Password is not Entred</mat-error> -->
+
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!myForm.valid" class="btn  btn-success  mt-3"
+                (click)="rgister(myForm)"><strong>Submit</strong></button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-6"></div>
+</div>

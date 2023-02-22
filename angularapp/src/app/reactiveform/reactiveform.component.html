@@ -1,0 +1,40 @@
+<div class="container py-5 ">
+    <div class="row justify-content-center">
+        
+        <div class="col-md-4 text-left rounded shadow py-1 bg-white">
+            <h2>Reactive Form</h2>
+            <form [formGroup]="myReactiveForm" (ngSubmit)="onsubmit()">
+              <div formGroupName="userDetails">
+                  <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" formControlName="username" class="form-control mt-2" id="username" placeholder="Enter User Name">
+                  </div>
+
+                  <div class="form-group mt-2">
+                    <label for="email">Email*</label>
+                    <input type="text" class="form-control mt-2" formControlName="email" id="email" placeholder="Enter Email" >
+                    <small class="text-danger" *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched ">
+                        Please enter valid email
+                    </small>   
+                  </div>
+              </div>
+                <div class="form-group mt-2">
+                    <label for="course">Select Course</label>
+                    <select formControlName="course" id="course">
+                        <option *ngFor="let course of courses" id="course"  value="{{course}}">{{course}}</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary mt-2">Submit</button>
+            </form>
+            <div class="row justify-content-center mt-2" *ngIf="isSubmitted">
+                <div class="col-md-6 rounded shadow py-4 bg-white">
+                    <h2>Form Data</h2>
+                    <p>Username: {{myReactiveForm.get('userDetails.username').value}}</p>
+                    <p>Username: {{myReactiveForm.get('userDetails.email').value}}</p>
+                    <p>Username: {{myReactiveForm.get('course').value}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

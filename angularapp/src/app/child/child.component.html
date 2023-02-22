@@ -1,0 +1,5 @@
+<div class="box" [ngClass]="{boxRed:boxColor=='red',boxGreen:boxColor=='green'}">
+    <input type="text"  #myInput placeholder="{{placeHolderText}}">
+    <button (click)="onCreate(myInput)">Create</button>
+    <div class="count" *ngIf="count"><h4>Total Count: <strong>{{count}}</strong></h4></div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+    <h2 class="heading ">Screate Password</h2><br>
+    <button type="button" (click)="onClick()"  class="button btn btn-info">
+        Display Details
+    </button>
+    <div class=" row col-sm ">
+     <h3  class="massage">{{sPassword}}</h3>
+    </div>
+
+    <div class="row" *ngFor="let m of messageArr;let i = index ">
+       
+        <p class="newM" [ngClass]="{'mbg':i>=4,'mbgb':i<=3}">{{i+1}}..{{m}}</p>
+      
+    </div>
+</div>
+
