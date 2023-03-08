@@ -1,0 +1,104 @@
+<div class="container py-5">
+ <form [formGroup]="myForm2" (ngSubmit)="onSubmit()">
+    <div class="row justify-content-center inner ">
+       
+        <div class=" bg-white col-md-4 text-left rounded shadow py-5 mt-5  mb-5" *ngIf="myForm2.get('comments').value">
+
+            <i class="fa fa-user-circle fa-5x" style="margin-left:40% ;" aria-hidden="true"></i>
+        <div class="card-body">
+            <h2  class="card-title text-center">{{myForm2.get('fullname').value}}</h2>
+            
+     <p class="card-text">{{myForm2.get('comments').value}}</p>
+    
+     </div>
+        </div>
+        <div class=" bg-white col-md-4 text-left rounded shadow py-5 mt-5  mb-5">
+            <h2>User Details</h2>
+            <div class="form-group mt-2">
+                <label for="fullname" class="text-secondary">Full Name*</label>
+                <input type="text" class="form-control mt-1" 
+                formControlName="fullname" id="fullname">
+                <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('fullname').touched && !myForm2.get('fullname').valid ">
+                    Please enter full name
+                </small>  
+                <small class="text-danger" *ngIf="isSubmited && !myForm2.valid &&  myForm2.get('fullname').touched && !myForm2.get('fullname').valid  ">
+                Please Enter full name</small>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="date"class="text-secondary">Your Birthday*</label>
+                <input id="date" 
+                        type="date" 
+                        class="form-control"
+                        formControlName="date"  />
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="gender"class="text-secondary">Gender</label>
+                <select formControlName="gender" id="{{gender.id}}" class="form-control mt-1" >
+                    <option *ngFor="let gen of genders" id="{{gender.id}}"  value="{{gen.value}}">{{gen.value}}</option>
+                </select>
+                <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('gender').touched && !myForm2.get('gender').valid ">
+                    Please Select Gender
+                </small>
+            </div>
+           <div class="row">
+            <div class="col-md-6">
+            <div class="form-group mt-2">
+                <label for="country">Country</label><br>
+                <select formControlName="country" id="country" class="form-control mt-1" (countryChange)="onCountryChange($event)">
+                    <option *ngFor="let country of countries" id="country"  value="{{country}}">{{country}}</option>
+                </select>
+
+                <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('country').touched && !myForm2.get('country').valid ">
+                    Please Select Country
+                </small>
+            </div>
+              </div>
+
+            <div class="col-md-6">
+                <!--Phone input field  -->
+             <div class="form-group mt-2">
+            <label for="phone" >Phone No*</label>
+            <input type="tele" pattern="[0-9]+"
+            formControlName="phone"
+            class="form-control mt-1 "
+             (keypress)="allowNumers($event)"
+                name="phone" id="phone" 
+                 maxlength="10">
+            <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('phone').touched && !myForm2.get('phone').valid ">
+                Please Enter Mobile Numbers</small>
+           </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="bio" class="text-secondary">Bio</label><br>
+                <!-- <textarea id="bio" class="form-control mt-1 "
+                 formControlName="bio"
+                 cols="30" rows="3" maxlength="250">
+
+                </textarea>
+                
+                <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('bio').touched && !myForm2.get('bio').valid ">
+                    Please enter bio
+                </small>  
+                <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('bio').maxlength ">
+                can not enter more thn 250 char</small>
+                <label for="">Tell us about yourself</label> -->
+                <textarea class="col-sm-12" maxlength="250" rows="3" formControlName="comments"
+                                 i18n-placeholder="@@describecomments">
+                            </textarea>
+                            <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('comments').touched && !myForm2.get('comments').valid ">
+                                Please enter bio
+                            </small>  
+                            <small class="text-danger" *ngIf="!isSubmited &&  myForm2.get('comments').value.length>=250 ">
+                            can not enter more thn 250 char</small>
+                            <label class="text-left">Tell us about yourself</label>
+                        <span class="col text-right text-primary  px-5"style="margin: left 2px;"><em >{{ 250 - myForm2.get('comments').value.length }}/250 </em></span>
+
+            </div>
+        </div>
+        </div>
+        
+    </div>
+</form>

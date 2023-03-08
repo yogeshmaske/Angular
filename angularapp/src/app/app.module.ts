@@ -52,6 +52,30 @@ import { Templateform1Component } from './templateform1/templateform1.component'
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { Templateform2Component } from './templateform2/templateform2.component';
 import { Reactiveform1Component } from './reactiveform1/reactiveform1.component';
+import { Reactiveform2Component } from './reactiveform2/reactiveform2.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PipeexampleComponent } from './pipeexample/pipeexample.component';
+import { CustomPipe } from './custom.pipe';
+import { SearchPipe } from './search.pipe';
+import { ProductFilterComponent } from './product-filter/product-filter.component';
+import { Comp1Component } from './comp1/comp1.component';
+import { Comp2Component } from './comp2/comp2.component';
+import { Comp3Component } from './comp3/comp3.component';
+import { Comp4Component } from './comp4/comp4.component';
+import { HomeComponent } from './home/home.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ProductComponent } from './product/product.component';
+import { LaptopComponent } from './product/laptop/laptop.component';
+import { MobileComponent } from './product/mobile/mobile.component';
+import { CameraComponent } from './product/camera/camera.component';
+import { WatchComponent } from './product/watch/watch.component';
+import { CarComponent } from './car/car.component';
+import { AudiComponent } from './car/audi/audi.component';
+import { FerrariComponent } from './car/ferrari/ferrari.component';
+import { MercedesComponent } from './car/mercedes/mercedes.component';
+import { RollsComponent } from './car/rolls/rolls.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +101,30 @@ import { Reactiveform1Component } from './reactiveform1/reactiveform1.component'
     Templateform1Component,
     ReactiveformComponent,
     Templateform2Component,
-    Reactiveform1Component
+    Reactiveform1Component,
+    Reactiveform2Component,
+    PipeexampleComponent,
+    CustomPipe,
+    SearchPipe,
+    ProductFilterComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
+    Comp4Component,
+    HomeComponent,
+    AboutusComponent,
+    ContactusComponent,
+    PagenotfoundComponent,
+    ProductComponent,
+    LaptopComponent,
+    MobileComponent,
+    CameraComponent,
+    WatchComponent,
+    CarComponent,
+    AudiComponent,
+    FerrariComponent,
+    MercedesComponent,
+    RollsComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +155,8 @@ import { Reactiveform1Component } from './reactiveform1/reactiveform1.component'
     MatStepperModule,
     MatProgressBarModule,
     MatSlideToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
     
   ],
   providers: [],

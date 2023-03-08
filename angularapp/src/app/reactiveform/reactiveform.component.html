@@ -8,21 +8,47 @@
                   <div class="form-group">
                     <label for="username">UserName</label>
                     <input type="text" formControlName="username" class="form-control mt-2" id="username" placeholder="Enter User Name">
-                  </div>
+                <small *ngIf="!myReactiveForm.get('userDetails.username').valid &&
+                               myReactiveForm.get('userDetails.username').touched">
+
+                      <span *ngIf="myReactiveForm.get('userDetails.username').errors['requred']">
+                            User Name Not Valid
+                     </span>
+
+                     <span *ngIf="myReactiveForm.get('userDetails.username').errors['namesNotAllowed']">
+                            {{myReactiveForm.get('userDetails.username').value}} is Already taken
+                     </span>
+                </small> 
+                
+                </div>
 
                   <div class="form-group mt-2">
                     <label for="email">Email*</label>
                     <input type="text" class="form-control mt-2" formControlName="email" id="email" placeholder="Enter Email" >
                     <small class="text-danger" *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched ">
                         Please enter valid email
-                    </small>   
+                       <br>
+                        
+                    </small>  
+                    <small class="text-danger" *ngIf="myReactiveForm.get('userDetails.email').errors['emailNotAllowed'] ">
+                        {{myReactiveForm.get('userDetails.email').value}}  is Allready Taken
+                    </small> 
+                    
                   </div>
               </div>
                 <div class="form-group mt-2">
                     <label for="course">Select Course</label>
-                    <select formControlName="course" id="course">
-                        <option *ngFor="let course of courses" id="course"  value="{{course}}">{{course}}</option>
+                    <select formControlName="course" id="course" >
+                        <option claass="form-control" *ngFor="let course of courses" id="course"  value="{{course}}">{{course}}</option>
                     </select>
+                </div>
+
+                <div class="form-group mt-2" formArrayName="skills">
+                    <label >Skills</label><br>
+                    <ng-container *ngFor="let skill of myReactiveForm.get('skills').controls; index as i ">
+                     <input type="text" claass="form-control mt-2" formControlName="{{i}}" placeholder="Add Skills">
+                    </ng-container><br>
+                <button class="btn btn-light btn-small mt-4 btn-add" (click)="onAddSkills()">+ Add Skills</button>
                 </div>
                 <button class="btn btn-primary mt-2">Submit</button>
             </form>
@@ -37,4 +63,9 @@
             </div>
         </div>
     </div>
+
+    <input type="date" [(ngModel)]="age">
+    <button type="button" (click)="onClick()">Generate Age</button>
+    <br>
+   <p > {{showAge}}</p>
 </div>

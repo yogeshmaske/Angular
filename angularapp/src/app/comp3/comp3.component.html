@@ -1,0 +1,14 @@
+<div class="box border rounded p-2">
+    <p>comp3</p>
+    User Name: <strong>{{userName}}</strong>
+    <br><br>
+    <input type="text" placeholder="Update User Name" #uname>
+    <button class="btn btn-primary ms-2" (click)="updateUsername(uname)">Update</button><br>
+    <button class="btn btn-success ms-2" (click)="displayCity()">Dispay Cities</button>
+
+    <div class="box" >
+        <div >
+            <span *ngFor="let city of cities">{{city}}<br></span>
+        </div>
+    </div>
+</div>

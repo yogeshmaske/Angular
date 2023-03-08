@@ -1,11 +1,13 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DemoService } from './service/demo.service';
+import { MyserviceService } from './service/myservice.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   
    id;
    ename;
@@ -35,8 +37,26 @@ export class AppComponent {
   }
   emp;
   imgUrl = 'https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg';
-  constructor(){
+  products: { name: string; id: string; }[];
+  
+  users;
+
+  constructor(private myservice:MyserviceService, private demoService: DemoService ){
     this.callmethod();
+  }
+  ngOnInit(): void {
+
+    this.products = this.myservice.products;
+
+    this.demoService.getUsers().subscribe(res=>{
+      console.log('User Api Result', res); 
+      this.users = res;
+    }, err =>{
+      console.log(err);
+      
+    })
+
+
   }
   callmethod(){
     this.emp =1000;
