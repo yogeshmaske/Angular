@@ -1,0 +1,52 @@
+<div class="container">
+    <h2>Using Local DataBase Data.json</h2>
+    <br>
+    <input type="text" id="title" placeholder="Enter Title" #title>
+    &nbsp;&nbsp;
+    <input type="text" id="content" placeholder="Enter Content" #content>
+    &nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="createTodo(title,content)">Create</button>
+</div>
+
+<div class="container" *ngIf="isClicked">
+    <h2>Using Local DataBase Data.json</h2>
+    <br>
+    <input type="text" id="utitle" placeholder="Enter Title" #utitle>
+    &nbsp;&nbsp;
+    <input type="text" id="ucontent" placeholder="Enter Content" #ucontent>
+    &nbsp;&nbsp;
+    <button class="btn btn-info" (click)="editTodo(utitle,ucontent)">Update Data</button>
+</div>
+
+
+
+<!-- <button class="btn btn-info" (click)="getDataFromLocal()">Get Data</button>
+
+<br><br>
+<button class="btn btn-danger" (click)="removeData()">Remove Data</button> -->
+<br><br>
+          
+<div class="container">
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+             <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Action</th>
+             </tr>
+        </thead>
+        <tbody class="">
+            <tr *ngFor="let todo of todoList">
+                <td>{{todo.id}}</td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.content}}</td>
+                <td>
+                    <button type="button" class="btn btn-info" (click)="editClicked(todo)" >Edit</button> &nbsp;&nbsp;
+                    <button type="button" class="btn btn-danger" (click)="deleteTodo(todo.id)" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>

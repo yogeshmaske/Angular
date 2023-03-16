@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DemoService } from './service/demo.service';
 import { MyserviceService } from './service/myservice.service';
+import { RapidapiService } from './service/rapidapi.service';
+import { RapidhotelapiService } from './service/rapidhotelapi.service';
 
 @Component({
   selector: 'app-root',
@@ -40,12 +42,34 @@ export class AppComponent implements OnInit {
   products: { name: string; id: string; }[];
   
   users;
+  finance;
+  newses=[];
+  quotes=[];
 
-  constructor(private myservice:MyserviceService, private demoService: DemoService ){
+  constructor(private rapidapiService:RapidapiService, private hotelApisrtvice:RapidhotelapiService,  private myservice:MyserviceService, private demoService: DemoService ){
     this.callmethod();
   }
   ngOnInit(): void {
 
+   this.rapidapiService.getFinance().subscribe(res=>{
+    // console.log('Finance Api',res); 
+     this.finance = res;
+    //  console.log(this.finance.news[0].title);
+    //  console.log(this.finance.news[0]);
+    this.newses = this.finance.news;
+    this.quotes = this.finance.quotes;
+
+    console.log(this.finance);
+    console.log(this.newses[0]);
+    console.log(this.quotes);
+     
+       })
+       
+       this.hotelApisrtvice.getHotelData().subscribe(res=>{
+        console.log('hotel Data',res);
+        
+       })
+       
     this.products = this.myservice.products;
 
     this.demoService.getUsers().subscribe(res=>{

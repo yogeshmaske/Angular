@@ -1,0 +1,35 @@
+<h2 class="text-danger">User Details Table</h2>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table  table-bordered">
+            <thead class="thead-dark ">
+              <tr>
+                <th>User Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Adress</th>
+                <th>City</th>
+                <th>Website</th>
+
+              </tr>
+            </thead>
+            <tbody>
+                <tr >
+                <td>{{objUser.id}}</td>
+                <td>{{objUser.name}}</td>
+                <td>{{objUser.phone}}</td>
+                <td>{{objUser.address.street}}</td>
+                <td>{{objUser.address.city}}</td>
+                <td>{{objUser.website}}</td>
+
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+      <br><br>
+      <div class="box ">
+        <a routerLink="/user" class="btn btn-small btn-info">Go Back</a>
+      </div>
+</div>

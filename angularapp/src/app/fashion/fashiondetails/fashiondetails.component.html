@@ -1,0 +1,31 @@
+
+
+
+    <div class="card" *ngIf="id=='1'" >
+        <h1 class="text-secondary "> >>Id :{{id}}</h1>
+        <h1 class="text-primary">Old Fashion</h1>
+        <img class="card-img-top" src="../../../assets/images/old.jpg" alt="Card image cap" height="150px">
+        <div class="card-body">
+          <h5 class="card-title text-warning">Old Fashion</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        
+        </div>
+        
+      </div>
+
+
+
+
+<div *ngIf="id=='2'">
+    <div class="card" >
+        <h1 class="text-secondary "> >>Id :{{id}}</h1>
+        <h1 class="text-primary">New Fashion</h1>
+        <img class="card-img-top" src="../../../assets/images/new.jpg" alt="Card image cap" height="150px">
+        <div class="card-body">
+          <h5 class="card-title text-warning">New Fashion</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+         
+        </div>
+      </div>
+</div>
+<a routerLink="/fashion" class="btn btn-info">Go Back</a>

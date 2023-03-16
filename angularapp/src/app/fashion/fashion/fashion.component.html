@@ -1,0 +1,29 @@
+
+ 
+<div class="col-md-12">
+    <h2 class="text-primary">Select Fashion Style or slect Number</h2>
+      <div>
+        <a *ngFor="let id of ids" [routerLink]="['/fashiondetails',id]" class="btn btn-success m-2">{{id}}</a>
+
+      </div>
+    <div class="card" >
+        <img class="card-img-top" src="../../../assets/images/old.jpg" alt="Card image cap" height="150px">
+        <div class="card-body">
+          <h5 class="card-title text-warning">Old Fashion</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a routerLink="oldfashion" class="btn btn-primary">Old Fashion</a>
+        </div>
+      </div>
+
+      <div class="card" >
+        <img class="card-img-top" src="../../../assets/images/new.jpg" alt="Card image cap" height="150px">
+        <div class="card-body">
+          <h5 class="card-title text-warning">New Fashion</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a routerLink="newfashion" class="btn btn-primary">New Fashion</a>
+        </div>
+      </div>
+    
+</div>
+
+

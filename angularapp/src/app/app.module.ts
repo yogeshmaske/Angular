@@ -20,7 +20,7 @@ import { NgclassComponent } from './ngclass/ngclass.component';
 import { Ngstyle1Component } from './ngstyle1/ngstyle1.component';
 import { Exersise1Component } from './exersise1/exersise1.component';
 import { ChildComponent } from './child/child.component';
-import { CustomDirective } from './custom.directive';
+// import { CustomDirective } from './custom.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // matarial
@@ -66,16 +66,26 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { ProductComponent } from './product/product.component';
-import { LaptopComponent } from './product/laptop/laptop.component';
-import { MobileComponent } from './product/mobile/mobile.component';
-import { CameraComponent } from './product/camera/camera.component';
-import { WatchComponent } from './product/watch/watch.component';
-import { CarComponent } from './car/car.component';
-import { AudiComponent } from './car/audi/audi.component';
-import { FerrariComponent } from './car/ferrari/ferrari.component';
-import { MercedesComponent } from './car/mercedes/mercedes.component';
-import { RollsComponent } from './car/rolls/rolls.component';
+// import { ProductComponent } from './product/product.component';
+// import { LaptopComponent } from './product/laptop/laptop.component';
+// import { MobileComponent } from './product/mobile/mobile.component';
+// import { CameraComponent } from './product/camera/camera.component';
+// import { WatchComponent } from './product/watch/watch.component';
+// import { CarComponent } from './car/car.component';
+// import { AudiComponent } from './car/audi/audi.component';
+// import { FerrariComponent } from './car/ferrari/ferrari.component';
+// import { MercedesComponent } from './car/mercedes/mercedes.component';
+// import { RollsComponent } from './car/rolls/rolls.component';
+import { DemopostComponent } from './demopost/demopost.component';
+import { DemopostdetailsComponent } from './demopostdetails/demopostdetails.component';
+import { UserComponent } from './user/user.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { UserpageComponent } from './userpage/userpage.component';
+import { ProductModule } from './product/product.module';
+import { OrdersModule } from './orders/orders.module';
+import { UtilityModule } from './shared/utility/utility.module';
+import { FashionModule } from './fashion/fashion.module';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +106,7 @@ import { RollsComponent } from './car/rolls/rolls.component';
     Ngstyle1Component,
     Exersise1Component,
     ChildComponent,
-    CustomDirective,
+    // CustomDirective,
     TemplateformComponent,
     Templateform1Component,
     ReactiveformComponent,
@@ -115,16 +125,14 @@ import { RollsComponent } from './car/rolls/rolls.component';
     AboutusComponent,
     ContactusComponent,
     PagenotfoundComponent,
-    ProductComponent,
-    LaptopComponent,
-    MobileComponent,
-    CameraComponent,
-    WatchComponent,
-    CarComponent,
-    AudiComponent,
-    FerrariComponent,
-    MercedesComponent,
-    RollsComponent
+  
+   
+    DemopostComponent,
+    DemopostdetailsComponent,
+    UserComponent,
+    UserdetailsComponent,
+    UserpageComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
@@ -156,7 +164,11 @@ import { RollsComponent } from './car/rolls/rolls.component';
     MatProgressBarModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ProductModule,
+    OrdersModule,
+    UtilityModule,
+    FashionModule
     
   ],
   providers: [],
