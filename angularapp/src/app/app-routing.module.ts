@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
+import { AuthGuard } from './auth.guard';
 import { AudiComponent } from './car/audi/audi.component';
 import { CarComponent } from './car/car.component';
 import { FerrariComponent } from './car/ferrari/ferrari.component';
@@ -16,6 +17,7 @@ import { FashiondetailsComponent } from './fashion/fashiondetails/fashiondetails
 import { NewfashionComponent } from './fashion/newfashion/newfashion.component';
 import { OldfashionComponent } from './fashion/oldfashion/oldfashion.component';
 import { HomeComponent } from './home/home.component';
+import { LoginformComponent } from './loginform/loginform.component';
 import { OrderlistComponent } from './orders/orderlist/orderlist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CameraComponent } from './product/camera/camera.component';
@@ -23,6 +25,7 @@ import { LaptopComponent } from './product/laptop/laptop.component';
 import { MobileComponent } from './product/mobile/mobile.component';
 import { ProductComponent } from './product/product.component';
 import { WatchComponent } from './product/watch/watch.component';
+import { SearchComponent } from './search/search.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { TodoComponent } from './todo/todo.component';
 import { UserComponent } from './user/user.component';
@@ -35,7 +38,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'aboutus',component:AboutusComponent},
   {path:'contactus',component:ContactusComponent},
-  {path:'product',
+  {path:'product',canActivate:[AuthGuard],
    children:[
     {path:'',component:ProductComponent},
     {path:'laptop',component:LaptopComponent},
@@ -58,7 +61,7 @@ const routes: Routes = [
   {path:'user',component:UserComponent},
   {path:'userdetails/:id',component:UserdetailsComponent},
   {path:'userpage',component:UserpageComponent},
-  {path:'login',component:TemplateformComponent},
+  {path:'login',component:LoginformComponent},
   {path:'todo',component:TodoComponent},
   {path:'order',component:OrderlistComponent},
   {path:'fashion',
@@ -78,6 +81,7 @@ const routes: Routes = [
   // Lazy Loading
   {path:'customer',loadChildren:'./customer/customer.module#CustomerModule'},
   {path:'admin',loadChildren:'./admin/admin.module#AdminModule'},
+  {path:'search',component:SearchComponent},
   {path:'**',component:PagenotfoundComponent}
 ];
 

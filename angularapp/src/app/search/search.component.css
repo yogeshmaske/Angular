@@ -1,0 +1,24 @@
+.box{
+    display: inline-flex;
+    
+}
+.box input{
+width: 90%;
+border-radius: 20px;
+}
+
+.box button{
+    margin-left: 3px;
+    }
+
+    .thead-dark{
+        background-color:rgb(85, 59, 59);
+        font-size: 20px;
+        font-weight: 700;
+        color: white;
+    }
+
+    .btn{
+
+        border-radius: 20px;
+    }

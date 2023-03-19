@@ -65,7 +65,7 @@ export class TodoComponent implements OnInit {
     })
     this.isClicked=false;
   }
-
+ 
   deleteTodo(id: any) {
     this.todoService.delete(id).subscribe(res => {
       console.log('Record has been deleted');

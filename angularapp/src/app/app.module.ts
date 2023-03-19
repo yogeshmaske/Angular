@@ -53,7 +53,7 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { Templateform2Component } from './templateform2/templateform2.component';
 import { Reactiveform1Component } from './reactiveform1/reactiveform1.component';
 import { Reactiveform2Component } from './reactiveform2/reactiveform2.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PipeexampleComponent } from './pipeexample/pipeexample.component';
 import { CustomPipe } from './custom.pipe';
 import { SearchPipe } from './search.pipe';
@@ -86,6 +86,10 @@ import { OrdersModule } from './orders/orders.module';
 import { UtilityModule } from './shared/utility/utility.module';
 import { FashionModule } from './fashion/fashion.module';
 import { TodoComponent } from './todo/todo.component';
+import { LoginformComponent } from './loginform/loginform.component';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { MyserviceService } from './service/myservice.service';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -132,7 +136,9 @@ import { TodoComponent } from './todo/todo.component';
     UserComponent,
     UserdetailsComponent,
     UserpageComponent,
-    TodoComponent
+    TodoComponent,
+    LoginformComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -171,7 +177,11 @@ import { TodoComponent } from './todo/todo.component';
     FashionModule
     
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi:true
+  },MyserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

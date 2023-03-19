@@ -1,0 +1,10 @@
+
+<div class="container"><p>Login</p>
+<input type="text" #username placeholder="Enter User Name">
+<br><br>
+<input type="text" #password placeholder="Enter Passowrd">
+<br><br>
+<button class="btn btn-primary" (click)="login(username.value,password.value)">Login</button>
+<br><br>
+<span class="text-danger">{{msg}}</span>
+</div>
