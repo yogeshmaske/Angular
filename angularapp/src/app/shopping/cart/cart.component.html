@@ -1,0 +1,50 @@
+
+<div class="container">
+<header>
+    <div class="navbar navbar-light bg-info shadow-sm">
+        <div class="navbar-brand align-item-center d-flex">
+            <strong  class="text-danger"  style="font-size:25px;margin-left: 450px;">Shopping Cart</strong>
+            <!-- <i class="fa fa-shopping-cart" style="font-size:22px;color: black; margin-left: 400px;margin-top: 9px;"aria-hidden="true"></i> -->
+        </div>
+        <button class="btn btn-warning " style="margin-right: 30px;">
+            <i class="fa fa-shopping-cart" style="font-size:30px;color: black; "aria-hidden="true"></i>
+            <ng-container *ngIf="numberOfItemInCart >0">
+                <div class="badge bg-info" style="font-size:10px;margin-left:2px;color:black">{{numberOfItemInCart}}</div>
+            </ng-container>
+            
+        </button>
+    </div> 
+</header>
+
+<div class="col-md-12">
+    
+      <div class="card"  *ngFor="let product of productList">
+             
+          <img class="card-img-top" src="../../assets/images/{{product.src}}.jpg" alt="Card image cap" height="150px">
+          <div class="card-body">
+            
+            <h3 class="card-title text-info">{{product.name}}</h3>
+            <p class="card-text">{{product.content}}</p>
+            <p class="card-text">Price:{{product.price}}</p>
+            <!-- <p>{{product.cartItem}}</p> -->
+            <!-- <a routerLink="laptop" class="btn btn-primary">Laptop</a> -->
+            <ng-container *ngIf="product.cartItem == 0">
+            <button class="btn btn-success" (click)="addToCart(product.productId)">ADD TO CART</button>
+            </ng-container>
+            <ng-container *ngIf="product.cartItem >= 1">
+                <!-- <button class="btn btn-info" (click)="addToCart()">-</button>
+                <button class="btn btn-info" (click)="addToCart()">+</button> -->
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info" (click)="removeFromToCart(product.productId)">-</button>
+                    
+                    <button type="button" class="btn btn-info" (click)="addToCart(product.productId)">+</button>
+                  </div>
+             </ng-container>
+            
+          </div>
+        </div>
+    
+  </div>
+  
+  
+</div>

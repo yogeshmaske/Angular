@@ -1,0 +1,11 @@
+{
+    
+      "productList" :[
+        {"name": "Mobile", "price": 10000,"content":"Android Mobile with 12gb RAM","src":"mobiles"},
+        {"name": "Watch", "price": 999,"content":"Android Smart Watch","src":"watch"},
+        {"name": "Laptop", "price": 99000,"content":"Dell Laptop With 12gb Ram & 500 Gb SSD","src":"laptop"},    
+        {"name": "Camera", "price": 12000,"content":"12 Mega Pixel Camera","src":"camera"}
+       ]
+}
+
+
