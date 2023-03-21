@@ -11,6 +11,11 @@ import { RapidhotelapiService } from './service/rapidhotelapi.service';
 })
 export class AppComponent implements OnInit {
   
+  data1=0;
+
+  changeFromParent(){
+    this.data1 +=1;
+  }
    id;
    ename;
    company;

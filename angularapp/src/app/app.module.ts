@@ -90,6 +90,11 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { MyserviceService } from './service/myservice.service';
 import { SearchComponent } from './search/search.component';
+import { HooksComponent } from './hooks/hooks.component';
+import { LoginscreenComponent } from './loginscreen/loginscreen.component';
+import { CartComponent } from './shopping/cart/cart.component';
+
+import { HeaderComponent } from './shopping/header/header.component';
 
 @NgModule({
   declarations: [
@@ -138,7 +143,11 @@ import { SearchComponent } from './search/search.component';
     UserpageComponent,
     TodoComponent,
     LoginformComponent,
-    SearchComponent
+    SearchComponent,
+    HooksComponent,
+    LoginscreenComponent,
+    CartComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

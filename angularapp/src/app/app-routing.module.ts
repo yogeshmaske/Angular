@@ -18,6 +18,7 @@ import { NewfashionComponent } from './fashion/newfashion/newfashion.component';
 import { OldfashionComponent } from './fashion/oldfashion/oldfashion.component';
 import { HomeComponent } from './home/home.component';
 import { LoginformComponent } from './loginform/loginform.component';
+import { LoginscreenComponent } from './loginscreen/loginscreen.component';
 import { OrderlistComponent } from './orders/orderlist/orderlist.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CameraComponent } from './product/camera/camera.component';
@@ -26,6 +27,7 @@ import { MobileComponent } from './product/mobile/mobile.component';
 import { ProductComponent } from './product/product.component';
 import { WatchComponent } from './product/watch/watch.component';
 import { SearchComponent } from './search/search.component';
+import { CartComponent } from './shopping/cart/cart.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { TodoComponent } from './todo/todo.component';
 import { UserComponent } from './user/user.component';
@@ -82,6 +84,8 @@ const routes: Routes = [
   {path:'customer',loadChildren:'./customer/customer.module#CustomerModule'},
   {path:'admin',loadChildren:'./admin/admin.module#AdminModule'},
   {path:'search',component:SearchComponent},
+  {path:'loginPage',component:LoginscreenComponent},
+  {path:'shopping/cart',component:CartComponent},
   {path:'**',component:PagenotfoundComponent}
 ];
 
