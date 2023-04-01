@@ -10,6 +10,9 @@ export class DemoService {
 
   //  httpInterpreter
   // headers = new HttpHeaders().set('Content-Type','application/json');
+  product = [
+    {name:'mobile',price:10000},{name:'Lapto',price:20000}
+  ]
   
   constructor(private httpClient : HttpClient) { }
 

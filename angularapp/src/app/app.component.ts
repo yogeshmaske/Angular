@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { DemoService } from './service/demo.service';
 import { MyserviceService } from './service/myservice.service';
 import { RapidapiService } from './service/rapidapi.service';
@@ -11,10 +13,14 @@ import { RapidhotelapiService } from './service/rapidhotelapi.service';
 })
 export class AppComponent implements OnInit {
   
-  data1=0;
+  // data1=0;
+  data1:string ='red';
+  appChildExist:boolean = true;
+
+   myObservable:any;
 
   changeFromParent(){
-    this.data1 +=1;
+    // this.data1 +=1;
   }
    id;
    ename;
@@ -55,6 +61,11 @@ export class AppComponent implements OnInit {
     this.callmethod();
   }
   ngOnInit(): void {
+   
+    //  Without subscribing getting data
+    this.myObservable = of('This is custom Observable').pipe(delay(3000))
+
+    // .subscribe(res=>{console.log('My observale data',res); })
 
    this.rapidapiService.getFinance().subscribe(res=>{
     // console.log('Finance Api',res); 
@@ -110,5 +121,13 @@ export class AppComponent implements OnInit {
     this.ename = obj.name;
     this.company = obj.company;
     this.tech = obj.tech;
+  }
+
+  handleData(value){
+   this.data1 = value.target.value;
+  }
+
+  onDestroy(){
+    this.appChildExist = false;
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdduserComponent } from './adduser/adduser.component';
 import { AdminListComponent } from './admin/admin-list/admin-list.component';
 import { AuthGuard } from './auth.guard';
 import { AudiComponent } from './car/audi/audi.component';
@@ -17,6 +18,7 @@ import { FashiondetailsComponent } from './fashion/fashiondetails/fashiondetails
 import { NewfashionComponent } from './fashion/newfashion/newfashion.component';
 import { OldfashionComponent } from './fashion/oldfashion/oldfashion.component';
 import { HomeComponent } from './home/home.component';
+import HooksComponent from './hooks/hooks.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { LoginscreenComponent } from './loginscreen/loginscreen.component';
 import { OrderlistComponent } from './orders/orderlist/orderlist.component';
@@ -26,10 +28,14 @@ import { LaptopComponent } from './product/laptop/laptop.component';
 import { MobileComponent } from './product/mobile/mobile.component';
 import { ProductComponent } from './product/product.component';
 import { WatchComponent } from './product/watch/watch.component';
+import { ResolveGuard } from './resolve.guard';
+import { ResolveexampleComponent } from './resolveexample/resolveexample.component';
+import { RxjsoperatorComponent } from './rxjsoperator/rxjsoperator.component';
 import { SearchComponent } from './search/search.component';
 import { CartComponent } from './shopping/cart/cart.component';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { TodoComponent } from './todo/todo.component';
+import { UnsavedchangesGuard } from './unsavedchanges.guard';
 import { UserComponent } from './user/user.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { UserpageComponent } from './userpage/userpage.component';
@@ -65,6 +71,7 @@ const routes: Routes = [
   {path:'userpage',component:UserpageComponent},
   {path:'login',component:LoginformComponent},
   {path:'todo',component:TodoComponent},
+  {path:'hook',component:HooksComponent},
   {path:'order',component:OrderlistComponent},
   {path:'fashion',
    children:[
@@ -86,6 +93,9 @@ const routes: Routes = [
   {path:'search',component:SearchComponent},
   {path:'loginPage',component:LoginscreenComponent},
   {path:'shopping/cart',component:CartComponent},
+  {path:'adduser',component:AdduserComponent,canDeactivate:[UnsavedchangesGuard]},
+  {path:'resolve',component:ResolveexampleComponent,resolve:{data:ResolveGuard}},
+  {path:'rxjs',component:RxjsoperatorComponent},
   {path:'**',component:PagenotfoundComponent}
 ];
 

@@ -90,11 +90,14 @@ import { LoginformComponent } from './loginform/loginform.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { MyserviceService } from './service/myservice.service';
 import { SearchComponent } from './search/search.component';
-import { HooksComponent } from './hooks/hooks.component';
+import HooksComponent from './hooks/hooks.component';
 import { LoginscreenComponent } from './loginscreen/loginscreen.component';
 import { CartComponent } from './shopping/cart/cart.component';
 
 import { HeaderComponent } from './shopping/header/header.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { ResolveexampleComponent } from './resolveexample/resolveexample.component';
+import { RxjsoperatorComponent } from './rxjsoperator/rxjsoperator.component';
 
 @NgModule({
   declarations: [
@@ -147,7 +150,10 @@ import { HeaderComponent } from './shopping/header/header.component';
     HooksComponent,
     LoginscreenComponent,
     CartComponent,
-    HeaderComponent
+    HeaderComponent,
+    AdduserComponent,
+    ResolveexampleComponent,
+    RxjsoperatorComponent
   ],
   imports: [
     BrowserModule,
